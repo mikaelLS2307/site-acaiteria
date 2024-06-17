@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Login ADM</title>
+</head>
+<body>
+    <nav class="navbar bg-light">
+        <div class="container d-flex align-items-center">
+    <h1 class="navbar-brand">
+        <i class="bi-person-fill-gear fs-3 me-1" ></i>
+        Login para Administrador</h1>
+        <img src="Logo_Sorveteria_Retrô_-removebg-preview.png" class="img-fluid" style="width:7rem" >
+        </div>
+    </nav>
+    <div class="container col-5 my-5">
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header mb-2"><h4><i class="bi-lock-fill me-2"></i>Insira as credenciais</h4></div>
+        <form action="" name="loginadm"  >
+            <div class="my-3">
+                <label for="login" class="form-label" style="width: 100%;"> Login:
+                    <input type="text" name="login" class="form-control"></input>
+                </label>
+               
+            </div>
+            <div class="my-3">
+                <label for="senha" class="form-label" style="width: 100%;"> Senha:
+                    <input type="password" name="senha" class="form-control"></input>
+                </label>
+            </div>
+            <div class="text-end">
+                
+            <button type="button" class="btn btn-success mb-3" onclick="buscar(event)" style="width: 7rem;">
+                Acessar
+            </button>    
+        </a>
+         </div>
+         </form>
+        </div>
+        </div>
+    </div>
+
+<script type="text/Javascript"> 
+    //criar funcao buscar(event)
+    function buscar(event,form) {
+        event.preventDefault();
+        const tela_login = document.loginadm.login.value;
+        const tela_senha = document.loginadm.senha.value;
+
+        //uma lista para guardar os dados obtidos no formato JSON
+        const dados = {
+            login: tela_login,
+            senha: tela_senha,
+        };
+        //Uma lista para dados de config
+        const options = {
+            method: 'POST',
+            header: {'Content-Type': 'application/json',},
+            body: JSON.stringify(dados),
+        };
+        if(tela_login != "" && tela_senha != ""){
+            const URL = 'http://localhost/api-clientes/index.php?url=api/login';
+            fetch( URL, options)
+                .then(resp=> resp.json())
+                .then(data=> mostrarrespostalogin(data))
+                .catch(erro => console.log(erro));
+        }
+    }
+    //criamos a funcao mostrarrespostalogin
+    function mostrarrespostalogin(data) {
+        console.log(data);
+        if (data.status == "error") {
+            alert("Login incorreto!")
+            document.getElementById("mensagem").textContent = data.data;
+        }
+        else{
+            alert("Bem-vindo ADM!")
+            location.href = "tela_adm.html";
+        }
+    }
+</script>
+
+</body>
+</html>

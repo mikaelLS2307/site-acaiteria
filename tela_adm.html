@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>ADM</title>
+</head>
+<body>
+    <nav class="navbar bg-light">
+        <div class="container d-flex align-items-center">
+    <h1 class="navbar-brand">
+        <i class="bi-person-circle fs-3 me-1" ></i>
+        Bem-vindo Administrador(a)</h1>
+        <img src="Logo_Sorveteria_Retrô_-removebg-preview.png" class="img-fluid" style="width: 7rem">
+        </div>
+    </nav>
+
+    <div class="container my-5 col-6">
+        <div class="accordion" id="acc1">
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item1"> Consultar Cadastro</button>
+                <div class="accordion-collapse collapse" id="item1" data-bs-parent="#acc1">
+                    <div class="accordion-body">
+                        <form action="" name="consulta" >
+
+                            <div>
+                                <label class="form-label" for="id">ID</label>
+                                <input type="number" id="id" class="form-control" style="width: auto;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="endereco" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="endereco">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" id="telefone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="cpf">
+                            </div>
+                            <button class="btn btn-primary" onclick="buscarconsulta(event)">
+                                Buscar
+                            </button>
+                            <button class="btn btn-secondary" type="reset">Limpar</button>
+                        </form>
+                        
+                    </div>
+                </div>
+
+                
+                </div>
+            </div>    
+        
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item2">Atualizar Cadastro</button>
+                <div class="accordion-collapse collapse" id="item2" data-bs-parent="#acc1">
+                    <div class="accordion-body">
+                        <form action="" name="atualizar">
+
+                            <div>
+                                <label class="form-label" for="id">ID</label>
+                                <input type="number" id="id" class="form-control" style="width: auto;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="endereco" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="endereco">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" id="telefone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="cpf">
+                            </div>
+                            <input type="button" class="btn btn-success" onclick="btatualizar(event)" value="Atualizar">
+                                
+                        </input>
+                        <button class="btn btn-primary" onclick="buscaralt(event)" >Buscar</button>
+                        <input type="reset" class="btn btn-secondary" value="Limpar"></input>
+                        </form>
+                        
+                    </div>
+                </div>
+
+                
+                </div>
+        </div>
+            <div class="accordion-item">
+                <div class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#item3">Excluir Cadastro</button>
+                <div class="accordion-collapse collapse" id="item3" data-bs-parent="#acc1">
+                    <div class="accordion-body">
+                        <form action="" name="excluir">
+
+                            <div>
+                                <label class="form-label" for="id">ID</label>
+                                <input type="number" id="id" class="form-control" style="width: auto;">
+                            </div>
+                            <div class="mb-3">
+                                <label for="nome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="nome">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email">
+                            </div>
+                            <div class="mb-3">
+                                <label for="endereco" class="form-label">Endereço</label>
+                                <input type="text" class="form-control" id="endereco">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="text" class="form-control" id="telefone">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cpf" class="form-label">CPF</label>
+                                <input type="text" class="form-control" id="cpf">
+                            </div>                            
+                            
+                            <input type="button" class="btn btn-danger" onclick="btexcluir(event)" value="Excluir"></input>
+                            <button class="btn btn-primary" onclick="buscardel(event)"> Buscar</button>
+                            <button class="btn btn-secondary " type="reset">Limpar</button>
+                                
+                        
+                        </form>
+                        
+                    </div>
+                </div>
+
+                
+                </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- programacao em JS -->
+    <script type="text/javascript">
+        //Criamos uma funcao para buscar os dados no BD
+        function buscarconsulta(event, form){
+            //comando para prevenir o cancelamento de evento
+            event.preventDefault();
+            const id = parseInt(document.consulta.id.value);
+            
+
+            if (id != ""){//id nao pode ser null
+                //endereco da api (consulta)
+                const URL = 'http://localhost/api-clientes/index.php?url=api/clientes/' + id;
+                //fetch(URL, options)
+                fetch(URL, {method: 'GET'})
+                    .then(resp => resp.json())
+                    .then(data => mostrarRespostaconsulta(data))
+                    //comando Catch() para tratar erros
+                    .catch(erro => console.log(erro));
+            }
+        }
+        //Funcao para mostrar uma mensagem e os dados buscados
+        function mostrarRespostaconsulta(data){
+            alert("Dados buscados com sucesso!!"); 
+            console.log(data);
+            
+            //colocando os dados buscado nos campos do form
+            document.consulta.nome.value = data.data.nome_cliente;
+            document.consulta.email.value = data.data.email_cliente;
+            document.consulta.endereco.value = data.data.endereco_cliente;
+            document.consulta.telefone.value = data.data.telefone_cliente;
+            document.consulta.cpf.value = data.data.cpf;
+        }
+
+
+
+        //Criamos a funcao buscardel
+        function buscardel(event,form){
+            event.preventDefault();
+            const id = parseInt(document.excluir.id.value);
+            if(id != ""){
+                const URL = 'http://localhost/api-clientes/index.php?url=api/clientes/' + id;
+                fetch(URL, {method:'GET'})
+                    .then(resp => resp.json())
+                    .then(data => mostrarRespostabuscardel(data))
+                    .catch(erro => console.log(erro));
+            }
+        }
+        //Criamos mostrarRespostabuscardel
+        function mostrarRespostabuscardel(data){
+            console.log(data);
+            if(data.status != "success"){
+                alert("Cadastro não encontrado!!");
+            }else{//trazer os dados para os campos
+            document.excluir.nome.value = data.data.nome_cliente;
+            document.excluir.email.value = data.data.email_cliente;
+            document.excluir.endereco.value = data.data.endereco_cliente;
+            document.excluir.telefone.value = data.data.telefone_cliente;
+            document.excluir.cpf.value = data.data.cpf;
+            }
+        }
+
+        //Criamos a funcao Excluir
+        function btexcluir(event,form){
+            event.preventDefault();
+            const id = parseInt(document.excluir.id.value);
+            if(id != ""){
+                const URL = 'http://localhost/api-clientes/index.php?url=api/clientes/' + id;
+                fetch(URL, {method:'DELETE'})
+                    .then(resp => resp.json())
+                    .then(data => mostrarRespostaDelete(data))
+                    .catch(erro => console.log(erro));
+            }
+        }
+        //Criamos funcao mostrarRespostaDelete
+        function mostrarRespostaDelete(data){
+            console.log(data);
+            if(data.status == "success"){
+                alert("Cadastro excluído com sucesso!");
+            }else{
+                alert("Erro ao excluir dados!!");
+            }
+            //limpar numero dos campos
+            document.excluir.id.value = "";
+            document.excluir.nome.value ="" ;
+            document.excluir.email.value ="";
+            document.excluir.endereco.value = "";
+            document.excluir.telefone.value ="" ;
+            document.excluir.cpf.value = "";
+        }
+
+
+        //Criamos a funcao buscaralt
+        function buscaralt(event,form){
+            event.preventDefault();
+            const id = parseInt(document.atualizar.id.value);
+            if(id != ""){
+                const URL = 'http://localhost/api-clientes/index.php?url=api/clientes/' + id;
+                fetch(URL, {method:'GET'})
+                    .then(resp => resp.json())
+                    .then(data => mostrarRespostabuscaralt(data))
+                    .catch(erro => console.log(erro));
+            }    
+        }
+        //Criamos a funcao mostrarRespostabuscaralt(data)
+        function mostrarRespostabuscaralt(data){
+            console.log(data);
+            if(data.status != "success"){
+                alert("Cadastro não encontrado!!");
+            }else{//trazer os dados para os campos
+            document.atualizar.nome.value = data.data.nome_cliente;
+            document.atualizar.email.value = data.data.email_cliente;
+            document.atualizar.endereco.value = data.data.endereco_cliente;
+            document.atualizar.telefone.value = data.data.telefone_cliente;
+            document.atualizar.cpf.value = data.data.cpf;
+            }
+        }
+    
+        //Criamos a funcao para atualizar cadastro
+        function btatualizar(event,form){
+            event.preventDefault();
+        const id = parseInt(document.atualizar.id.value);    
+        const nome_cliente = document.atualizar.nome.value;
+        const email_cliente = document.atualizar.email.value;
+        const endereco_cliente = document.atualizar.endereco.value;
+        const telefone_cliente = document.atualizar.telefone.value;
+        const cpf = document.atualizar.cpf.value;
+        //Criamos uma lista para guardar os dados obtidos
+        const dados = {
+            id: id,
+            nome_cliente: nome_cliente,
+            email_cliente: email_cliente,
+            endereco_cliente: endereco_cliente,
+            telefone_cliente: telefone_cliente,
+            cpf: cpf,
+        };
+        //Criamos uma lista para os dados de config
+        const options = {
+            method:'PUT', //metodo PUT para alterar os dados
+            header:{'Content-Type': 'application/json',},
+            body:JSON.stringify(dados), //transformando formato JSON em String com JSON.stringify()
+        };
+        if(id != ""){
+            const URL = 'http://localhost/api-clientes/index.php?url=api/clientes/' +id; //endereco da api
+            fetch(URL,options)
+                .then(resp => resp.json())
+                .then(data => mostrarRespostaalt(data))
+                .catch(erro =>console.log(erro));
+        }
+        }
+        //Criamos a funcao mostrarRespostaalt
+        function mostrarRespostaalt(data){
+            console.log(data);
+            if(data.status == "success"){
+                alert("Dados alterados com sucesso!!");
+            }else{
+                alert("Erro ao alterar os dados!");
+            }
+            //Limpar os campos
+            document.atualizar.id.value = "";
+            document.atualizar.nome.value ="" ;
+            document.atualizar.email.value ="";
+            document.atualizar.endereco.value = "";
+            document.atualizar.telefone.value ="" ;
+            document.atualizar.cpf.value = "";
+        }
+    </script>
+</body>
+</html>

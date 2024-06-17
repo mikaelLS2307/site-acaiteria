@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    
+    <title>Fazer pedido</title>
+</head>
+<style>
+    /* Estilo para a mensagem flutuante */
+    .toast {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      padding: 10px;
+      z-index: 1000;
+      display: none;
+    }
+  </style>
+<body>
+    
+    <nav class="navbar d-flex justify-content-center" style=" height: 5rem; margin-top: 4rem; margin-bottom: 5rem; position: relative; background-color: #722251;">
+        <img src="LOGO.jpg" width="180px" height="180px" style="position: absolute;">
+       
+    </nav>
+    
+
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="card mx-4 col shadow ">
+            <img src="acai2.png" class="card-img" height="200px">
+            <div class="card-body mt-3">
+                <div class="card-text text-center" style="font-family: oswald;">
+                    Açaí 300ml com leite condensado, leite em pó e frutas.
+                   
+                </div>
+                <div class="card-text">
+                    <p class="lead mt-2 d-flex justify-content-center" style="font-weight: bold; font-family: oswald;">
+                        R$15,00
+                    </p>
+                </div>
+                
+                <a href="#complem" class="card-link btn btn-success mt-3 p-2 d-flex justify-content-center" data-bs-toggle="offcanvas">Comprar</a>
+                <div class="offcanvas offcanvas-bottom" style="--bs-offcanvas-height:320px;"   id="complem">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Escolha os acompanhamentos:</h5>
+                        <button class="btn-close" onclick="resetForm()" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body container d-flex" style="font-family: oswald;">       
+                        <form id="frutas" class="form-check col-6">
+                            <h3 class="text-start">Frutas</h3>
+                            <label class="form-label" for="banana">Banana</label>
+                                <input id="banana" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="morango">Morango</label>
+                                <input id="morango" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="kiwi">Kiwi</label>
+                                <input id="kiwi" class="form-check-input" type="checkbox">
+                                <br>      
+                            <label class="form-label" for="manga">Manga</label>
+                                <input id="manga" class="form-check-input" type="checkbox">
+                                <br>      
+                        </form>
+
+                        <form id="acomps" class="form-check col-6">
+                            <h3>Complementos</h3>
+                        <label class="form-label" for="leitepo">Leite em pó</label>    
+                            <input id="leitepo" class="form-check-input" type="checkbox">
+                            <br>
+                        <label class="form-label" for="leitecond">Leite Condensado</label>
+                            <input id="leitecond" class="form-check-input" type="checkbox">
+                            <br>
+                        <label for="mms" class="form-label">MM's</label>
+                            <input id="mms" type="checkbox" class="form-check-input">
+                            <br>
+                        <label for="ovomaltine" class="form-label">Ovomaltine</label>
+                            <input id="ovomaltine" type="checkbox" class="form-check-input">        
+                        </form>
+
+                    </div>
+                    
+                      
+                      <button class="btn btn-success ms-auto me-5 my-3" onclick="resetForm(); realizarpedido()">Realizar Pedido</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card mx-4 col shadow">
+            <img src="acai1.png" height="200px">
+            <div class="card-body mt-3">
+                <div class="card-text text-center" style="font-family: oswald;">
+                    Açaí 400ml com leite condensado, leite em pó e frutas.
+                </div>
+                <div class="card-text">
+                    <p class="lead mt-2 d-flex justify-content-center " style="font-weight: bold; font-family: oswald;">
+                        R$20,00
+                    </p>
+                </div>
+                <a href="#complem" class="card-link btn btn-success mt-3 p-2 d-flex justify-content-center" data-bs-toggle="offcanvas">Comprar</a>
+                <div class="offcanvas offcanvas-bottom" style="--bs-offcanvas-height:320px;"   id="complem">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Escolha os acompanhamentos:</h5>
+                        <button class="btn-close" onclick="resetForm()" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body container d-flex" style="font-family: oswald;">       
+                        <form id="frutas" class="form-check col-6">
+                            <h3 class="text-start">Frutas</h3>
+                            <label class="form-label" for="banana">Banana</label>
+                                <input id="banana" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="morango">Morango</label>
+                                <input id="morango" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="kiwi">Kiwi</label>
+                                <input id="kiwi" class="form-check-input" type="checkbox">
+                                <br>      
+                        </form>
+
+                        <form id="acomps" class="form-check col-6">
+                            <h3>Complementos</h3>
+                        <label class="form-label" for="leitepo">Leite em pó</label>    
+                            <input id="leitepo" class="form-check-input" type="checkbox">
+                            <br>
+                        <label class="form-label" for="leitecond">Leite Condensado</label>
+                            <input id="leitecond" class="form-check-input" type="checkbox">
+                            <br>
+                        <label for="mms" class="form-label">MM's</label>
+                            <input type="checkbox" class="form-check-input">    
+                        </form>
+
+                    </div>
+                    
+                    <button class="btn btn-success ms-auto me-5 mb-3">Realizar Pedido</button>
+                
+                </div>
+            </div>
+        </div>
+        <div class="card mx-4 col shadow">
+            <img src="acai3.png" height="200px">
+            <div class="card-body mt-3 text-center">
+                <div class="card-text" style="font-family: oswald;">
+                    Açaí 500ml com leite condensado, leite em pó e frutas.
+                </div>
+                <div class="card-text">
+                    <p class="lead mt-2 d-flex justify-content-center " style="font-weight: bold; font-family: oswald;" >
+                        R$25,00
+                    </p>
+                </div>
+                <a href="#complem" class="card-link btn btn-success mt-3 p-2 d-flex justify-content-center" data-bs-toggle="offcanvas">Comprar</a>
+                <div class="offcanvas offcanvas-bottom" style="--bs-offcanvas-height:320px;"   id="complem">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Escolha os acompanhamentos:</h5>
+                        <button class="btn-close" onclick="resetForm()" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body container d-flex" style="font-family: oswald;">       
+                        <form id="frutas" class="form-check col-6">
+                            <h3 class="text-start">Frutas</h3>
+                            <label class="form-label" for="banana">Banana</label>
+                                <input id="banana" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="morango">Morango</label>
+                                <input id="morango" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="kiwi">Kiwi</label>
+                                <input id="kiwi" class="form-check-input" type="checkbox">
+                                <br>      
+                        </form>
+
+                        <form id="acomps" class="form-check col-6">
+                            <h3>Complementos</h3>
+                        <label class="form-label" for="leitepo">Leite em pó</label>    
+                            <input id="leitepo" class="form-check-input" type="checkbox">
+                            <br>
+                        <label class="form-label" for="leitecond">Leite Condensado</label>
+                            <input id="leitecond" class="form-check-input" type="checkbox">
+                            <br>
+                        <label for="mms" class="form-label">MM's</label>
+                            <input type="checkbox" class="form-check-input">    
+                        </form>
+
+                    </div>
+                    
+                    <button class="btn btn-success ms-auto me-5 mb-3" >Realizar Pedido</button>
+                
+                </div>
+            </div>
+        </div>
+        <div class="card mx-4 col  shadow">
+            <img src="acai4.png" height="200px">
+            <div class="card-body mt-3 text-center">
+                <div class="card-text" style="font-family: oswald;">
+                    Açaí 700ml com leite condensado, leite em pó e frutas.
+                </div>
+                <div class="card-text" >
+                <p class="lead d-flex justify-content-center mt-2" style="font-weight: bold; font-family: oswald;">R$30,00 
+                </p>
+                </div>
+                <a href="#complem" class="card-link btn btn-success mt-3 p-2 d-flex justify-content-center" data-bs-toggle="offcanvas">Comprar</a>
+                <div class="offcanvas offcanvas-bottom" style="--bs-offcanvas-height:320px;"   id="complem">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title">Escolha os acompanhamentos:</h5>
+                        <button class="btn-close" onclick="resetForm()" data-bs-dismiss="offcanvas"></button>
+                    </div>
+                    <div class="offcanvas-body container d-flex" style="font-family: oswald;">       
+                        <form id="frutas" class="form-check col-6">
+                            <h3 class="text-start">Frutas</h3>
+                            <label class="form-label" for="banana">Banana</label>
+                                <input id="banana" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="morango">Morango</label>
+                                <input id="morango" class="form-check-input" type="checkbox">
+                                <br>
+                            <label class="form-label" for="kiwi">Kiwi</label>
+                                <input id="kiwi" class="form-check-input" type="checkbox">
+                                <br>      
+                        </form>
+
+                        <form id="acomps" class="form-check col-6">
+                            <h3>Complementos</h3>
+                        <label class="form-label" for="leitepo">Leite em pó</label>    
+                            <input id="leitepo" class="form-check-input" type="checkbox">
+                            <br>
+                        <label class="form-label" for="leitecond">Leite Condensado</label>
+                            <input id="leitecond" class="form-check-input" type="checkbox">
+                            <br>
+                        <label for="mms" class="form-label">MM's</label>
+                            <input type="checkbox" class="form-check-input">    
+                        </form>
+
+                    </div>
+                    <button class="btn btn-success ms-auto me-5 mb-3" type="button" >Realizar Pedido</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <nav class=" navbar d-flex bottom-0 start-0 end-0 p-5" style="background-color: #722251;">
+        <div class="navbar-brand d-flex align-items-center">
+            <img src="Logo_Sorveteria_Retrô_-removebg-preview.png" width="200px" height="200px" style="position: absolute;">
+        </div>
+        <div class="navbar nav d-flex ms-5">
+            <style>
+                .btn-foot{
+                    color: #fff;
+                    transition: background-color 0.3s ease;
+                }
+                .btn-foot:hover{
+                    border: solid 1px #fff;
+                    background-color: rgb(255, 255, 255);
+                    color: #6A2C70;
+                    font-weight: bold;
+                }
+            </style>
+            <a href="index.html" class="nav-link btn btn-foot " >Home</a>
+            <a href="quem_somos(deletar).html" class="nav-link btn btn-foot">Quem Somos</a>
+        </div>
+        <div class="navbar nav">
+            <div class="card-title" style=" color: white; font-size: 15pt;"><p class="lead">Formas de pagamento</p>
+            <div class="card-body">
+                <i class="bi-credit-card"title="Cartão" style="color: black; margin-left: 1.5rem; "></i>
+                <i class="fa-brands fa-pix" title="Pix" style="color: black; margin-left: 2rem;"></i>
+                <i class="fa-solid fa-wallet" title="Dinheiro" style="color: black; margin-left: 2rem;"></i>
+            </div>
+        </div>
+
+    </nav>
+    
+    
+    <script>
+
+        function resetForm() {
+          document.getElementById("frutas").reset();
+          document.getElementById("acomps").reset();
+        }
+      
+        // Lidar com o evento de fechamento do offcanvas para resetar o formulário
+        var myOffcanvas = document.getElementById('complem')
+        myOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
+          resetForm();
+        })
+
+        
+        function realizarpedido() {
+            // Atraso de 5 segundos (5000 milissegundos)
+           window.location.href = "realizar-pedido.html";
+        }
+        
+      </script>
+    
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Açaiteria Gela Goela</title>
+    <link rel="stylesheet" href="estilos-realizar-pedido.css" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+    <!--Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Bootstrap icons -->
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="scripts.js" defer></script>
+    <style>
+      /* Estilo para a mensagem flutuante */
+      .toast {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border-radius: 5px;
+        padding: 10px;
+        z-index: 1000;
+        display: none;
+      }
+    </style>
+  </head>
+  <body id="checkout-page">
+    <nav class="navbar d-flex justify-content-center" style=" height: 5rem; margin-top: 4rem; margin-bottom: 5rem; position: relative; background-color: #722251;">
+      <img src="LOGO.jpg" width="180px" height="180px" style="position: absolute;">
+     
+  </nav>
+    <div id="fade" class="hide">
+      <div id="loader" class="spinner-border text-info hide" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+      <div id="message" class="hide">
+        <div class="alert alert-light" role="alert">
+          <h4>Mensagem:</h4>
+          <p></p>
+          <button id="close-message" type="button" class="btn btn-secondary">
+            Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="order-form-container" class="container p-6 my-md-4 px-md-0">
+      <div id="steps" class="mb-md-3 pb-md-3">
+        <div class="line"></div>
+        
+       
+        
+      </div>
+      <div id="form-header" method="POST">
+        <h2>Endereço para entrega</h2>
+        <form method="post">
+        <p>Preencha os campos para podermos enviar seus produtos</p>
+      </div>
+      <form id="address-form">
+        <div class="row mb-3">
+          <div class="form-floating">
+            <input
+              type="text"
+              class="form-control"
+              id="cep"
+              name="cep"
+              placeholder="Digite o seu CEP"
+              maxlength="8"
+              minlength="8"
+              required
+            />
+            <label for="cep">Digite o seu CEP (Apenas Números)</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="address"
+              name="address"
+              placeholder="Rua"
+              disabled
+              required
+              data-input
+            />
+            <label for="address">Rua</label>
+          </div>
+          <div class="col-12 col-sm-6 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="number"
+              name="number"
+              placeholder="Digite o número da residência"
+              required
+              data-input
+            />
+            <label for="number">Digite o número da residência</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="complement"
+              name="complement"
+              placeholder="Digite o complemento"
+              data-input
+              required
+            />
+            <label for="complement">Digite o complemento</label>
+          </div>
+          <div class="col-12 col-sm-6 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="neighborhood"
+              name="neighborhood"
+              placeholder="Bairro"
+              disabled
+              required
+              data-input
+            />
+            <label for="neighborhood">Bairro</label>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-12 col-sm-6 mb-3 mb-md-0 form-floating">
+            <input
+              type="text"
+              class="form-control shadow-none"
+              id="city"
+              name="city"
+              placeholder="Cidade"
+              disabled
+              required
+              data-input
+            />
+            <label for="city">Cidade</label>
+          </div>
+          <div class="col-12 col-sm-6 mb-3">
+            <select
+              class="form-select shadow-none"
+              id="region"
+              disabled
+              required
+              data-input
+            >
+              <option selected>Estado</option>
+              <option value="AC">Acre</option>
+              <option value="AL">Alagoas</option>
+              <option value="AP">Amapá</option>
+              <option value="AM">Amazonas</option>
+              <option value="BA">Bahia</option>
+              <option value="CE">Ceará</option>
+              <option value="DF">Distrito Federal</option>
+              <option value="ES">Espírito Santo</option>
+              <option value="GO">Goiás</option>
+              <option value="MA">Maranhão</option>
+              <option value="MT">Mato Grosso</option>
+              <option value="MS">Mato Grosso do Sul</option>
+              <option value="MG">Minas Gerais</option>
+              <option value="PA">Pará</option>
+              <option value="PB">Paraíba</option>
+              <option value="PR">Paraná</option>
+              <option value="PE">Pernambuco</option>
+              <option value="PI">Piauí</option>
+              <option value="RJ">Rio de Janeiro</option>
+              <option value="RN">Rio Grande do Norte</option>
+              <option value="RS">Rio Grande do Sul</option>
+              <option value="RO">Rondônia</option>
+              <option value="RR">Roraima</option>
+              <option value="SC">Santa Catarina</option>
+              <option value="SP">São Paulo</option>
+              <option value="SE">Sergipe</option>
+              <option value="TO">Tocantins</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-end" >
+          <div class="toast bg-success" id="pedidoRealizadoToast" style="z-index: 9999;" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+              Seu pedido foi realizado com sucesso!
+            </div>
+        </div>
+
+        
+        
+        <button type="button" class="btn btn-light text-white btn-lg" onclick="mostrarMensagem();redirecionarParaTelaInicial();redirecionarParaTela();" style="background-color: #722251 !important"  >Fazer Pedido</button>
+
+        <style>
+          #loadingScreen {
+              display: none; /* Ocultar a tela de carregamento inicialmente */
+              position: fixed;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(255, 255, 255, 0.8);
+              z-index: 9999;
+              justify-content: center;
+              align-items: center;
+          }
+      </style>
+      
+          <div id="loadingScreen">
+            <div class="spinner-border text-primary" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+
+       
+
+      </form>
+        
+          
+          
+
+    </div>
+  </div>
+
+  <nav class=" navbar d-flex bottom-0 start-0 end-0 p-5" style="background-color: #722251;">
+    <div class="navbar-brand d-flex align-items-center">
+        <img src="Logo_Sorveteria_Retrô_-removebg-preview.png" width="200px" height="200px" style="position: absolute;">
+    </div>
+    <div class="navbar nav d-flex ms-5">
+      <style>
+        .btn-foot{
+            color: #fff;
+            transition: background-color 0.3s ease;
+        }
+        .btn-foot:hover{
+            border: solid 1px #fff;
+            background-color: rgb(255, 255, 255);
+            color: #6A2C70;
+            font-weight: bold;
+        }
+    </style>
+        <a href="index.html" class="nav-link btn btn-foot">Home</a>
+        <a href="quem_somos(deletar).html" class="nav-link btn btn-foot">Quem Somos</a>
+    </div>
+    <div class="navbar nav">
+        <div class="card-title" style=" color: white; font-size: 15pt;"><p class="lead">Formas de pagamento</p>
+        <div class="card-body">
+            <i class="bi-credit-card" title="Cartão" style="color: black; margin-left: 1.5rem; "></i>
+            <i class="fa-brands fa-pix" title="Pix" style="color: black; margin-left: 2rem;"></i>
+            <i class="fa-solid fa-wallet" title="Dinheiro" style="color: black; margin-left: 2rem;"></i>
+          </div>
+        </div>
+    </div>
+    
+
+  </nav>
+  
+  </body>
+</html>

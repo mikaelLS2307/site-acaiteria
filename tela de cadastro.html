@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+    <title>Fazer pedido</title>
+</head>
+<style>
+    /* Estilo para a mensagem flutuante */
+   
+
+    .title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .form-control {
+        border: 2px solid #722251;
+    }
+
+    
+   
+  </style>
+<body>
+    
+    <nav class="navbar d-flex justify-content-center" style=" height: 5rem; margin-top: 4rem; margin-bottom: 6rem; position: relative; background-color: #722251;">
+        <img src="LOGO.jpg" width="180px" height="180px" style="position: absolute;">
+       
+    </nav>
+    
+    
+
+<div class="container" >
+  <h2 class="title">Faça Seu Cadastro Aqui:</h2>
+  <form id="myForm" name="cadastro" style="width:50%;margin-left: 275px;" onsubmit="salvar(event)">
+    <div class="form-group" >
+      <label for="nome">Nome:</label>
+      <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required >
+      <div class="valid-feedback">
+        tudo certo!
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
+    </div>
+    <div class="form-group">
+      <label for="endereco">Endereço:</label>
+      <input type="text" class="form-control" id="endereco" placeholder="Digite seu endereço" required>
+    </div>
+    <div class="form-group">
+      <label for="telefone">Telefone:</label>
+      <input type="tel" class="form-control" id="telefone" placeholder="Digite seu telefone" required>
+    </div>
+    <div class="form-group">
+      <label for="cpf">CPF:</label>
+      <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF" required>
+    </div>
+    <div class="text-center">
+    <button type="submit" class="btn"  data-target="#myModal" style="margin-bottom: 30px;width: 400px;margin-top: 27px;background-color: #722251; color: white; " >Cadastrar</button>
+    </form>
+</div>
+    </div>
+    
+
+      <!-- O Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Obrigado</h5>
+                  <a href="index.html"><button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button></a>
+              </div>
+              <div class="modal-body">
+                  Seja Bem-vindo e aproveite !!!
+              </div>
+              <div class="modal-footer">
+                  <a href="index.html"><button type="button" class="btn" style="background-color: #722251; color: white;" >Voltar Para Tela Inicial</button></a>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  
+  <footer><nav class=" navbar d-flex bottom-0 start-0  p-5" style="background-color: #722251;">
+    <div class="navbar-brand d-flex align-items-center">
+        <img src="Logo_Sorveteria_Retrô_-removebg-preview.png" width="200px" height="200px" style="position: absolute;">
+    </div>
+    <div class="navbar nav d-flex ms-5">
+        <style>
+            .btn-foot{
+                color: #fff;
+                transition: background-color 0.3s ease;
+            }
+            .btn-foot:hover{
+                border: solid 1px #fff;
+                background-color: rgb(255, 255, 255);
+                color: #6A2C70;
+                font-weight: bold;
+            }
+        </style>
+        <a href="index.html" class="nav-link btn btn-foot " >Home</a>
+        <a href="quem_somos(deletar).html" class="nav-link btn btn-foot">Quem Somos</a>
+    </div>
+    <div class="navbar nav">
+        <div class="card-title" style=" color: white; font-size: 15pt;"><p class="lead">Formas de pagamento</p>
+        <div class="card-body">
+            <i class="bi-credit-card"title="Cartão" style="color: black; margin-left: 1.5rem; "></i>
+            <i class="fa-brands fa-pix" title="Pix" style="color: black; margin-left: 2rem;"></i>
+            <i class="fa-solid fa-wallet" title="Dinheiro" style="color: black; margin-left: 2rem;"></i>
+        </div>
+    </div>
+  </nav></footer>
+   
+
+     <!-- Inclua o JS do Bootstrap e jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function resetForm() {
+          document.getElementById("frutas").reset();
+          document.getElementById("acomps").reset();
+        }
+      
+        // Lidar com o evento de fechamento do offcanvas para resetar o formulário
+        /*var myOffcanvas = document.getElementById('complem')
+        myOffcanvas.addEventListener('hidden.bs.offcanvas', function () {
+          resetForm();
+        })*/
+
+        
+        function realizarpedido() {
+            // Atraso de 5 segundos (5000 milissegundos)
+           window.location.href = "realizar-pedido.html";
+        }
+      </script>
+       
+       <script>
+          document.getElementById('myForm').addEventListener('submit', function(event) {
+              event.preventDefault(); // Impede o envio padrão do formulário
+              $('#myModal').modal('show'); // Mostra o modal
+          });
+        </script>
+
+<script>
+  //iniciamos a programacao em JS
+
+  function salvar(event, form){
+      event.preventDefault();
+
+      const nome_cliente = document.cadastro.nome.value;
+      const email_cliente = document.cadastro.email.value;
+      const endereco_cliente = document.cadastro.endereco.value;
+      const telefone_cliente = document.cadastro.telefone.value;
+      const cpf = document.cadastro.cpf.value;
+      //Criamos uma lista para guardar os dados obtidos
+      const dados = {
+          nome_cliente: nome_cliente,
+          email_cliente: email_cliente,
+          endereco_cliente: endereco_cliente,
+          telefone_cliente: telefone_cliente,
+          cpf: cpf,
+      };
+      //Criamos uma lista para os dados de config
+      const options = {
+          method:'POST', //metodo POST para enviar os dados
+          header:{'Content-Type': 'application/json',},
+          body:JSON.stringify(dados), //transformando formato JSON em String com JSON.stringify()
+      };
+      if(nome_cliente != ""){
+          const URL = 'http://localhost/api-clientes/index.php?url=api/clientes'; //endereco da api
+          fetch(URL,options)
+              .then(resp => resp.json())
+              .then(data => mostrarResposta(data))
+              .catch(erro =>console.log(erro));
+      }
+  }
+
+      //funcao para mostrar resposta
+      function mostrarResposta(data){   
+          console.log(data);
+          if(data.status == "success") {
+              alert("Cadastro realizado com sucesso !!");
+
+          }else{
+              alert("Erro ao cadastrar!!");
+          }
+      }
+</script>
+    
+</body>
+</html>
